@@ -12,9 +12,10 @@ function App() {
 
 function IncrimentDec() {
 
-  const [count, setCount] = useState([0])
+  const [count, setCount] = useState(0)
 
-  incriment = () => setCount(count + 1)
+  const Incriment = () => setCount(count + 1)
+  const Decriment = () => setCount(count + 1)
 
 
 
@@ -22,8 +23,8 @@ function IncrimentDec() {
     <div>
       <h2>Incriment and Decrimant</h2>
       <h1>Counter:{count}</h1>
-      <button onClick={incriment}>Incriment</button>
-      <button>Dicriment</button>
+      <button onClick={Incriment}>Incriment</button>
+      <button onClick={Decriment}>Dicriment</button>
     </div>
   )
 }
