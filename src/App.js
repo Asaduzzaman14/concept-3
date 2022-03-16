@@ -5,11 +5,44 @@ import { useEffect, useState } from 'react';
 function App() {
   return (
     <div className="App">
-      <IncrimentDec></IncrimentDec>
+      {/* <IncrimentDec></IncrimentDec> */}
+      <LoadComment></LoadComment>
+
     </div>
   );
 }
 
+function LoadComment() {
+  const [comments, setComments] = useState()
+  useState(() => {
+    fetch('https://jsonplaceholder.typicode.com/comments')
+      .then(res => res.json())
+      .then(data => setComments(data))
+  }, [])
+
+  return (
+    <div>
+      <h1>load Comment</h1>
+      {
+        comments.map(comment => <Comment email={comment.email} body={comment.body}></Comment>)
+      }
+    </div>
+  )
+}
+
+function Comment(props) {
+  return (
+    <div>
+      <h3>Email: {props.email}</h3>
+      <p>Comment : {props.body}</p>
+    </div>
+  )
+}
+
+
+
+
+//  incrimant and decriment
 function IncrimentDec() {
 
   const [count, setCount] = useState(0)
